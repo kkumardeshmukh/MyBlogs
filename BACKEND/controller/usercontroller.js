@@ -121,6 +121,7 @@ exports.allUserController = async (req, res) => {
         return res.status(200).send({
             message: "All users fetched successfully",
             success: true,
+            UserCount: users.length,
             users
         });
 
