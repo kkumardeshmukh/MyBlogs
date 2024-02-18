@@ -1,5 +1,5 @@
 const express = require('express')
-const { createBlogController, updateBlogController, deleteBlogController, getAllBlogController, singleBlogController } = require('../controller/blogcontroller')
+const { createBlogController, updateBlogController, deleteBlogController, getAllBlogController, singleBlogController, userBlogController } = require('../controller/blogcontroller')
 
 const router = express.Router()
 
@@ -18,5 +18,8 @@ router.get('/all-blogs', getAllBlogController)
 
 //get single blogs 
 router.get('/single-blog/:id', singleBlogController)
+
+//get blogs of single user which is given in params 
+router.get('/user-blog/:id', userBlogController)
 
 module.exports = router;

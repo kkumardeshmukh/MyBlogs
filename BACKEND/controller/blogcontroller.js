@@ -1,31 +1,56 @@
+const mongoose = require('mongoose')
 const blogModel = require('../models/blogmodel')
+const userModel = require('../models/userModel')
 
 exports.createBlogController = async (req, res) => {
     try {
 
-        const { title, description, catagory, image } = req.body
+        const { title, description, catagory, image, user } = req.body
 
-        if (!title || !description || !catagory || !image) {
+        if (!title || !description || !catagory || !image || !user) {
             return res.status(400).send({
                 success: false,
                 message: " fill all the fields"
             })
         }
 
-        const blogtitle = await blogModel.findOne({ title })
-        if (blogtitle) {
-            return res.status(400).send({
+        const existingUser = await userModel.findById(user)
+
+        console.log(existingUser)
+
+        if (!existingUser) {
+            return res.status(404).send({
                 success: false,
-                message: "cahnge your title it is already in database"
+                message: " enable to find user"
             })
         }
-        const blog = await new blogModel({ title, description, catagory, image }).save()
+
+
+
+        // const blogtitle = await blogModel.findOne({ title })
+        // if (blogtitle) {
+        //     return res.status(400).send({
+        //         success: false,
+        //         message: "cahnge your title it is already in database"
+        //     })
+        // }
+
+
+        const newBlog = new blogModel({ title, description, catagory, image, user });
+        await newBlog.save();
+
+        //at the same time of creating the new blog this will update blogs array of user schema
+        existingUser.blogs.push(newBlog)
+        await existingUser.save()
+
+
 
         return res.status(201).send({
             success: true,
             message: " blog created successfully",
-            blog
+            newBlog
         })
+
     } catch (error) {
         console.log(error)
         return res.status(500).send({
@@ -151,4 +176,36 @@ exports.singleBlogController = async (req, res) => {
         })
 
     }
+}
+
+exports.userBlogController = async (req, res) => {
+
+    try {
+        const userBlog = await userModel.findById(req.params.id).populate("blogs")
+
+        if (!userBlog) {
+            return res.status(404).send({
+                success: false,
+                message: "blogs not found "
+            })
+        }
+        return res.status(200).send({
+            success: true,
+            message: "blogs found ",
+            userName: userBlog.name,
+            userBlog: userBlog.blogs
+        })
+
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({
+            success: false,
+            message: "error while accessing blogs of perticular user in server",
+            error
+        })
+
+    }
+
+
 }
