@@ -1,13 +1,21 @@
 import React from 'react'
 
+
 const Header = () => {
     return (
         <>
-            <nav className="navbar navbar-light bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Navbar</a>
+            <div className="navbar">
+                <div className="navlogo">MY BLOG APP</div>
+                <div className="navlinks">
+                    <a href="">Blogs</a>
+                    <a href="">My-Blogs</a>
                 </div>
-            </nav>
+                <div className="navlinks">
+
+                    <a href="">Login</a>
+                    <a href="">Register</a>
+                </div>
+            </div>
 
         </>
     )
