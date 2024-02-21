@@ -35,7 +35,7 @@ const Register = () => {
 
 
             if (response.data.success) {
-                alert("User Registered Successfully")
+                alert("User Registered Successfully and redirecting to login page")
                 navigate("/login")
             }
 
