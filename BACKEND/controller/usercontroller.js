@@ -17,19 +17,19 @@ exports.registerController = async (req, res) => {
         const existingUser = await userModel.findOne({ email })
 
         if (existingUser) {
-            return res.status(401).send({
+            return res.status(111).send({
                 message: 'User already exists',
                 success: false
             })
         }
 
         const hashedpassword = await bcrypt.hash(password, 10)
-        console.log(hashedpassword)
+        console.log("hashedpassword password generated for new user")
 
 
         const user = await userModel({ name, email, phone, password: hashedpassword }).save()
 
-        return res.status(401).send({
+        return res.status(201).send({
             message: 'User Registered Successfully',
             success: true,
             user

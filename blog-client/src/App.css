@@ -1,6 +1,13 @@
 
 body{
-  background:rgb(195, 191, 191)
+  /* background: rgb(230 222 222); */
+  display: flex;
+  justify-content: center;
+  background-image: url("https://e0.pxfuel.com/wallpapers/600/884/desktop-wallpaper-school-themed-lined-writing-paper-a4-lined-paper-a4-lined-within-notebook-paper-background-f-notebook-paper-template-notebook-paper-lined-writing-paper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  
 }
 
 
@@ -26,6 +33,11 @@ body{
   font-weight: bolder;
 
 }
+
+.navlogo img{
+  height:3rem;
+  margin-left: 6rem;
+}
 .navlinks{
   /* border: 2px solid green; */
   margin-right: 40px;
@@ -34,5 +46,78 @@ body{
  margin-left: 20px;
  text-decoration: none;
  color: black;
- font-weight: 600;
+ font-weight: 400;
+}
+.navlinks a:hover{
+
+ color: blue;
+ 
+}
+
+
+.main-page{
+  display:flex;
+  height:100vh;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  /* background-color: white;  */
+  /* background-image: url("https://e0.pxfuel.com/wallpapers/600/884/desktop-wallpaper-school-themed-lined-writing-paper-a4-lined-paper-a4-lined-within-notebook-paper-background-f-notebook-paper-template-notebook-paper-lined-writing-paper.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background: transparent;
+  justify-content: center;
+margin-left: 11rem;
+  width:80vw
+}
+
+
+.catagory-bar{
+  display:flex;
+  margin-left: 11rem !important;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  background-color: rgb(195, 194, 194); 
+  width:80vw;
+
+  
+}
+
+.catagory-bar li a{
+  text-decoration: none;
+ color: black;
+ font-weight: 400;
+
+}
+.border-2{
+  border: 2px solid red;
+}
+
+.login-register-margin{
+  margin-top: 3rem;
+ 
+}
+.margin-to-centre{
+  margin-left: 6.5rem;
+}
+
+.card-mesur{
+  max-width: 350px;
+    max-height: 119px;
+}
+
+.blog-page{
+  display:flex;
+  height:100vh;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  background: transparent;
+  justify-content: space-around;
+margin-left: 11rem;
+  width:80vw
+}
+.card-img-size{
+  
 }

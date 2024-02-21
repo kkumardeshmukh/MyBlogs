@@ -1,19 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 
 
 const Header = () => {
     return (
         <>
             <div className="navbar">
-                <div className="navlogo">MY BLOG APP</div>
+                <div className="navlogo"><img src="/images/logo2.png" alt="logo" /></div>
                 <div className="navlinks">
-                    <a href="">Blogs</a>
-                    <a href="">My-Blogs</a>
+                    <Link to="/">Blogs</Link>
+                    <Link to="/myblogs">My-Blogs</Link>
+
                 </div>
                 <div className="navlinks">
 
-                    <a href="">Login</a>
-                    <a href="">Register</a>
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
+                    <Link to="">Logout</Link>
                 </div>
             </div>
 

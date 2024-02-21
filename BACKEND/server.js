@@ -10,8 +10,8 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 const port = 5000;
 
 
